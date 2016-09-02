@@ -2,7 +2,7 @@
 /*
 Plugin Name: TLD Awesome Click to tweet
 Description: A plugin for inserting tweet intents directly into posts after any paragraph.
-Version: 3.0.0-beta
+Version: 3.1.0-beta
 Author: Uriahs Victor
 License: GPLv2 or later
 */
