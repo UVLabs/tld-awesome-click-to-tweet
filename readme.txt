@@ -44,6 +44,10 @@ Initial release
 
 Minor text fix
 
+=1.0.2=
+
+Removed time(); query string
+
 == Frequently Asked Questions ==
 
 More template?
