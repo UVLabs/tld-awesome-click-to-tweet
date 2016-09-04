@@ -1,9 +1,10 @@
 <?php
 /*
-Plugin Name: TLD Awesome Click to tweet
-Description: A plugin for inserting tweet intents directly into posts after any paragraph.
-Version: 3.1.0-beta
+Plugin Name: TLD Awesome Click To Tweet
+Description: A plugin for inserting tweet intents directly into posts or pages after any paragraph.
+Version: 1.0.0
 Author: Uriahs Victor
+Author URI: http://uriahsvictor.com
 License: GPLv2 or later
 */
 
@@ -86,12 +87,16 @@ function tld_actt_shortcode( $atts, $content = null ){
 	}
 	switch ( $the_actt_template ) {
 
+		case 'bbutton':
+		$the_actt_template = ' tld-actt-bbutton';
+		break;
+
 		case 'dashed':
 		$the_actt_template = ' tld-actt-border-dashed';
 		break;
 
-		case 'bbutton':
-		$the_actt_template = ' tld-actt-t1';
+		case 'minimalist':
+		$the_actt_template = ' tld-actt-minimalist';
 		break;
 
 		default:
@@ -109,13 +114,13 @@ function tld_actt_shortcode( $atts, $content = null ){
 	$the_actt_template_classes	.= $the_actt_font;
 
 	switch ( $the_actt_template ) {
-		case ' tld-actt-t1':
+		case ' tld-actt-bbutton':
 		if ( $the_actt_anim != 'none' ) {
 			$actt_tweet = '
 			<div id="tld-actt-tweet-container" class="'.esc_attr( $the_actt_anim_classes ) . esc_attr( $the_actt_template_classes ).'" style="'.esc_attr( $the_actt_animation_settings).'">
 			<p>'.wp_strip_all_tags( $the_actt_mask . $content ).'</p>
 			<div class="tld-actt-tweet-text tld-actt-white-btn-text tld-actt-btn-full">
-			<a href="https://twitter.com/intent/tweet?text='.$the_actt_tweet.'" target="_blank">'.wp_strip_all_tags( $the_actt_btn_text ).'<span class="icon-twitter"></span></a>
+			<a href="https://twitter.com/intent/tweet?text='.$the_actt_tweet.'" target="_blank"><span>'.wp_strip_all_tags( $the_actt_btn_text ).'</span><span class="icon-twitter"></span></a>
 			</div>
 			</div>';
 		}else{
@@ -123,7 +128,47 @@ function tld_actt_shortcode( $atts, $content = null ){
 			<div id="tld-actt-tweet-container" class="'. esc_attr( $the_actt_template_classes ).'">
 			<p>'.wp_strip_all_tags( $the_actt_mask . $content ).'</p>
 			<div class="tld-actt-tweet-text tld-actt-white-btn-text tld-actt-btn-full">
-			<a href="https://twitter.com/intent/tweet?text='.$the_actt_tweet.'" target="_blank">'.wp_strip_all_tags( $the_actt_btn_text ).'<span class="icon-twitter"></span></a>
+			<a href="https://twitter.com/intent/tweet?text='.$the_actt_tweet.'" target="_blank"><span>'.wp_strip_all_tags( $the_actt_btn_text ).'</span><span class="icon-twitter"></span></a>
+			</div>
+			</div>';
+		}
+		break;
+
+		case ' tld-actt-border-dashed':
+		if ( $the_actt_anim != 'none' ) {
+			$actt_tweet = '
+			<div id="tld-actt-tweet-container" class="'.esc_attr( $the_actt_anim_classes ) . esc_attr( $the_actt_template_classes ).'" style="'.esc_attr( $the_actt_animation_settings).'">
+			<p>'.wp_strip_all_tags( $the_actt_mask . $content ).'</p>
+			<div class="tld-actt-tweet-text">
+			<a class="tld-actt-btn-default" href="https://twitter.com/intent/tweet?text='.$the_actt_tweet.'" target="_blank"><span>'.wp_strip_all_tags( $the_actt_btn_text ).'</span><span class="icon-twitter"></span></a>
+			</div>
+			</div>';
+		}else{
+			$actt_tweet = '
+			<div id="tld-actt-tweet-container" class="'. esc_attr( $the_actt_template_classes ).'">
+			<p>'.wp_strip_all_tags( $the_actt_mask . $content ).'</p>
+			<div class="tld-actt-tweet-text">
+			<a class="tld-actt-btn-default" href="https://twitter.com/intent/tweet?text='.$the_actt_tweet.'" target="_blank"><span>'.wp_strip_all_tags( $the_actt_btn_text ).'</span><span class="icon-twitter"></span></a>
+			</div>
+			</div>';
+		}
+		break;
+
+		case ' tld-actt-minimalist':
+		if ( $the_actt_anim != 'none' ) {
+			$actt_tweet = '
+			<div id="tld-actt-tweet-container" class="'.esc_attr( $the_actt_anim_classes ) . esc_attr( $the_actt_template_classes ).'" style="'.esc_attr( $the_actt_animation_settings).'">
+			<p>'.wp_strip_all_tags( $the_actt_mask . $content ).'</p>
+			<div class="tld-actt-tweet-text">
+			<a class="tld-actt-btn-default" href="https://twitter.com/intent/tweet?text='.$the_actt_tweet.'" target="_blank"><span>'.wp_strip_all_tags( $the_actt_btn_text ).'</span><span class="icon-twitter"></span></a>
+			</div>
+			</div>';
+		}else{
+			$actt_tweet = '
+			<div id="tld-actt-tweet-container" class="'. esc_attr( $the_actt_template_classes ).'">
+			<p>'.wp_strip_all_tags( $the_actt_mask . $content ).'</p>
+			<div class="tld-actt-tweet-text">
+			<a class="tld-actt-btn-default" href="https://twitter.com/intent/tweet?text='.$the_actt_tweet.'" target="_blank"><span>'.wp_strip_all_tags( $the_actt_btn_text ).'</span><span class="icon-twitter"></span></a>
 			</div>
 			</div>';
 		}
@@ -134,7 +179,7 @@ function tld_actt_shortcode( $atts, $content = null ){
 		<div id="tld-actt-tweet-container" class="'.esc_attr( $the_actt_template_classes ).'">
 		<p>'.wp_strip_all_tags( $the_actt_mask . $content ).'</p>
 		<div class="tld-actt-tweet-text">
-		<a class="tld-actt-btn-default" href="https://twitter.com/intent/tweet?text='.$the_actt_tweet.'" target="_blank">'.wp_strip_all_tags( $the_actt_btn_text ).'<span class="icon-twitter"></span></a>
+		<a class="tld-actt-btn-default" href="https://twitter.com/intent/tweet?text='.$the_actt_tweet.'" target="_blank"><span>'.wp_strip_all_tags( $the_actt_btn_text ).'</span><span class="icon-twitter"></span></a>
 		</div>
 		</div>';
 		break;

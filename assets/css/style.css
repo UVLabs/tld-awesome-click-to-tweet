@@ -61,15 +61,15 @@
 }
 
 #tld-actt-tweet-container.titillium-web p{
-  font-family: 'Titillium Web';
+  font-family: 'Titillium Web' !important;
 }
 
 #tld-actt-tweet-container.indie-flower p{
-  font-family: 'Indie Flower';
+  font-family: 'Indie Flower' !important;
 }
 
 #tld-actt-tweet-container.poiret-one p{
-  font-family: 'Poiret One';
+  font-family: 'Poiret One' !important;
 }
 
 /*might be uneeded*/
@@ -113,6 +113,6 @@
 
 /*=== Template 1 ===*/
 
-.tld-actt-t1{
+.tld-actt-bbutton{
   background: #fff;
 }
