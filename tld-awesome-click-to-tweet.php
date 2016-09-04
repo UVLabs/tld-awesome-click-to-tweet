@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: TLD Awesome Click To Tweet
-Description: A plugin for inserting tweet intents directly into posts or pages after any paragraph.
-Version: 1.0.0
+Description: A plugin for inserting customizable tweet intents directly into posts or pages after any paragraph.
+Version: 1.0.1
 Author: Uriahs Victor
 Author URI: http://uriahsvictor.com
 License: GPLv2 or later

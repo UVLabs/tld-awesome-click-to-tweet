@@ -9,7 +9,7 @@ function tld_actt_add_tinymce_button(){
     return;
   }
 
-  //verify post tidy_parse_file
+  //verify post type
 
   if ( ! in_array( $typenow, array( 'post', 'page' ) ) )
     return;
